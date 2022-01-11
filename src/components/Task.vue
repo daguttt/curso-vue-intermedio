@@ -4,6 +4,7 @@
     <button @click="$emit('task-removed')">Eliminar</button>
   </li>
 </template>
+
 <script>
 export default {
   props: {
@@ -11,4 +12,9 @@ export default {
   },
 };
 </script>
-  
+
+<style lang="scss">
+button {
+  color: $primary;
+}
+</style>
