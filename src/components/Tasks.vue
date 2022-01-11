@@ -16,12 +16,12 @@
 
 <script>
 import Task from "@/components/Task";
+import tasksService from "../services/tasksService";
+
 export default {
   name: "Tasks",
   created() {
-    fetch("https://jsonplaceholder.typicode.com/todos")
-      .then((res) => res.json())
-      .then((json) => (this.tasks = json));
+    tasksService.get().then((res) => (this.tasks = res.data));
   },
   data() {
     return {
