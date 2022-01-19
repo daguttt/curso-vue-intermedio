@@ -6,14 +6,16 @@
 </template>
 
 <script>
-import EventBus from "@/EventBus.js";
+// import EventBus from "@/EventBus.js";
+import state from "@/state.js";
 export default {
   props: {
     task: Object,
   },
   methods: {
-    sendDetails() {
-      EventBus.$emit("send-details", this.task.title);
+    sendDetails(title) {
+      // EventBus.$emit("send-details", this.task.title);
+      state.changeCurrentTaskTitle(title);
     },
   },
 };

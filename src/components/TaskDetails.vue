@@ -1,20 +1,22 @@
 <template>
   <div>
     <h1>Detalles de la tarea</h1>
-    <p>{{ details }}</p>
+    <p>{{ state.currentTaskTitle }}</p>
   </div>
 </template>
 <script>
-import EventBus from "@/EventBus.js";
+// import EventBus from "@/EventBus.js";
+import state from "@/state.js";
 export default {
   name: "TaskDetails",
   data() {
     return {
-      details: "",
+      state: {},
     };
   },
-  created() {
-    EventBus.$on("send-details", (details) => (this.details = details));
+  mounted() {
+    // EventBus.$on("send-details", (details) => (this.details = details));
+    this.state = state.state;
   },
 };
 </script>
