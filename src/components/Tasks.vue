@@ -7,9 +7,10 @@
       <br />
       <input type="search" name="search" id="search" v-model="search" />
     </form>
-    <ul v-for="(item, $index) in itemsFiltered" :key="item.id">
-      <Task :task="item" @task-removed="removeItem($index)" />
+    <ul>
+      <Task v-for="item in itemsFiltered" :key="item.id" :task="item" />
     </ul>
+    <TaskDetails />
     <br />
   </div>
 </template>
@@ -18,6 +19,7 @@
 import Task from "@/components/Task";
 import tasksService from "../services/tasksService";
 import { crudItemsMixin } from "../mixins/crudItems";
+import TaskDetails from "./TaskDetails.vue";
 export default {
   name: "Tasks",
   created() {
@@ -26,6 +28,7 @@ export default {
   mixins: [crudItemsMixin],
   components: {
     Task,
+    TaskDetails,
   },
 };
 </script>

@@ -1,14 +1,20 @@
 <template>
   <li>
     {{ task.title }}
-    <button @click="$emit('task-removed')">Eliminar</button>
+    <button @click="sendDetails(task.title)">Eliminar</button>
   </li>
 </template>
 
 <script>
+import EventBus from "@/EventBus.js";
 export default {
   props: {
     task: Object,
+  },
+  methods: {
+    sendDetails() {
+      EventBus.$emit("send-details", this.task.title);
+    },
   },
 };
 </script>
