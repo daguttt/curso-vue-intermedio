@@ -3,8 +3,11 @@ import Service from "./Service";
 const resource = "posts";
 
 export default {
-  get() {
+  getAll() {
     return Service.get(resource)
+  },
+  getItem(config) {
+    return Service.get(resource, config)
   },
   create(data) {
     return Service.post(resource, data)

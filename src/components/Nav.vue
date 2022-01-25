@@ -1,10 +1,20 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/posts">Posts</router-link>
+  <div>
+    <Logo />
+    <div id="nav">
+      <RouterLink to="/">Home</RouterLink> |
+      <RouterLink :to="{ name: 'posts' }">Posts</RouterLink>
+    </div>
   </div>
 </template>
-
+<script>
+import Logo from "@/components/Logo";
+export default {
+  components: {
+    Logo,
+  },
+};
+</script>
 <style scoped>
 #nav {
   padding: 30px;
